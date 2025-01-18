@@ -54,10 +54,16 @@ main {
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 40px;
     margin-bottom: 20px;
 }
 
+.subtitulo {
+    font-size: 18px;
+    color: #bbb;
+}
+
+/* Pie de página */
 footer {
     text-align: center;
     padding: 10px 0;
