@@ -1,3 +1,44 @@
+// Selecciona los botones de navegación
+const homeLink = document.getElementById("home-link");
+const profileLink = document.getElementById("profile-link");
+const registerLink = document.getElementById("register-link");
+const loginLink = document.getElementById("login-link");
+
+// Selecciona las secciones correspondientes
+const homeSection = document.getElementById("home-section");
+const profileSection = document.getElementById("profile-section");
+const registerSection = document.getElementById("register-section");
+const loginSection = document.getElementById("login-section");
+
+// Muestra la sección correspondiente al hacer clic
+homeLink.addEventListener("click", () => {
+  homeSection.classList.remove("hidden");
+  profileSection.classList.add("hidden");
+  registerSection.classList.add("hidden");
+  loginSection.classList.add("hidden");
+});
+
+profileLink.addEventListener("click", () => {
+  profileSection.classList.remove("hidden");
+  homeSection.classList.add("hidden");
+  registerSection.classList.add("hidden");
+  loginSection.classList.add("hidden");
+});
+
+registerLink.addEventListener("click", () => {
+  registerSection.classList.remove("hidden");
+  homeSection.classList.add("hidden");
+  profileSection.classList.add("hidden");
+  loginSection.classList.add("hidden");
+});
+
+loginLink.addEventListener("click", () => {
+  loginSection.classList.remove("hidden");
+  homeSection.classList.add("hidden");
+  profileSection.classList.add("hidden");
+  registerSection.classList.add("hidden");
+});
+
 // Configuración de Firebase
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
