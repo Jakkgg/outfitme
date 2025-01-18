@@ -13,24 +13,24 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#" id="home-link">Home</a></li>
-                <li><a href="#">Upload</a></li>
-                <li><a href="#" id="profile-link">Profile</a></li>
-                <li><a href="#">Settings</a></li>
+                <li><a href="#home" id="home-link">Home</a></li>
+                <li><a href="#upload">Upload</a></li>
+                <li><a href="#profile" id="profile-link">Profile</a></li>
+                <li><a href="#settings">Settings</a></li>
                 <!-- Opciones para Registrarse y Logearse -->
-                <li><a href="#" id="register-link">Registrarse</a></li>
-                <li><a href="#" id="login-link">Logearse</a></li>
+                <li><a href="#register" id="register-link">Registrarse</a></li>
+                <li><a href="#login" id="login-link">Logearse</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Sección principal -->
-    <main>
+    <main id="home-section">
         <h1>OutfitMe</h1>
         <p class="subtitulo">Califica una foto o publica una tú</p>
     </main>
 
-    <!-- Perfil -->
+    <!-- Sección de perfil -->
     <section id="profile-section" class="hidden">
         <div class="profile-container">
             <div class="profile-header">
@@ -44,6 +44,30 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Sección de login -->
+    <section id="login-section" class="hidden">
+        <h2>Iniciar Sesión</h2>
+        <form id="login-form">
+            <label for="login-username">Usuario:</label>
+            <input type="text" id="login-username" required><br>
+            <label for="login-password">Contraseña:</label>
+            <input type="password" id="login-password" required><br>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </section>
+
+    <!-- Sección de registro -->
+    <section id="register-section" class="hidden">
+        <h2>Registrarse</h2>
+        <form id="register-form">
+            <label for="register-username">Usuario:</label>
+            <input type="text" id="register-username" required><br>
+            <label for="register-password">Contraseña:</label>
+            <input type="password" id="register-password" required><br>
+            <button type="submit">Registrarse</button>
+        </form>
     </section>
 
     <footer>
