@@ -15,16 +15,33 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Upload</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="#" id="profile-link">Profile</a></li>
                 <li><a href="#">Settings</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Sección principal -->
     <main>
         <h1>OutfitMe</h1>
         <p class="subtitulo">Califica una foto o publica una tú</p>
     </main>
+
+    <!-- Perfil -->
+    <section id="profile-section" class="hidden">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-picture">
+                    <img id="profile-img" src="default-avatar.jpg" alt="Foto de perfil">
+                    <button id="change-pic-btn">Cambiar foto</button>
+                </div>
+                <div class="username">
+                    <label for="username-input">Nombre de Usuario:</label>
+                    <input type="text" id="username-input" value="Usuario123">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2025 Thiago Azario</p>
