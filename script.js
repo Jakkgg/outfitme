@@ -28,6 +28,7 @@ document.getElementById("google-login-btn").addEventListener("click", function()
       alert("Bienvenido, " + user.displayName);
       document.getElementById("profile-section").classList.remove("hidden"); // Mostrar la sección del perfil
       document.getElementById("home-section").classList.add("hidden"); // Ocultar la sección de inicio
+      document.getElementById("profile-img").src = user.photoURL; // Mostrar la foto del perfil
     })
     .catch((error) => {
       console.error("Error en inicio de sesión: ", error.message);
@@ -52,6 +53,7 @@ onAuthStateChanged(auth, (user) => {
     console.log("Usuario autenticado:", user);
     document.getElementById("profile-section").classList.remove("hidden");
     document.getElementById("home-section").classList.add("hidden");
+    document.getElementById("profile-img").src = user.photoURL; // Mostrar foto de perfil
   } else {
     console.log("Usuario no autenticado");
   }
