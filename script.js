@@ -69,5 +69,15 @@ async function addPost(postContent) {
     console.log("Publicación añadida con ID:", docRef.id);
   } catch (e) {
     console.error("Error añadiendo publicación: ", e);
+
+const firebaseConfig = {
+  apiKey: "tu-api-key",
+  authDomain: "tu-project-id.firebaseapp.com",
+  projectId: "tu-project-id",
+  storageBucket: "tu-project-id.appspot.com",
+  messagingSenderId: "tu-messaging-sender-id",
+  appId: "tu-app-id",
+};
+
   }
 }
