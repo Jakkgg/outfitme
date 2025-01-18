@@ -113,3 +113,4 @@ async function addPost(postContent) {
     console.error("Error añadiendo publicación: ", e);
   }
 }
+
