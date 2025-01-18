@@ -46,6 +46,11 @@ nav ul li a:hover {
     background-color: #444; /* Gris más claro cuando se pasa el mouse */
 }
 
+/* Sección de opciones adicionales */
+nav ul li:nth-last-child(-n+2) {
+    margin-left: 40px; /* Separar "Registrarse" y "Logearse" de las otras opciones */
+}
+
 /* Contenido principal */
 main {
     text-align: center;
