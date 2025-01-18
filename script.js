@@ -5,12 +5,13 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 // Configuración de Firebase
 const firebaseConfig = {
-  apiKey: "tu-api-key",
-  authDomain: "tu-project-id.firebaseapp.com",
-  projectId: "tu-project-id",
-  storageBucket: "tu-project-id.appspot.com",
-  messagingSenderId: "tu-messaging-sender-id",
-  appId: "tu-app-id",
+  apiKey: "AIzaSyAbKrXeAtvHKaEuczR4-amATS9b-iwWG8U",
+  authDomain: "outfit-me-6da83.firebaseapp.com",
+  projectId: "outfit-me-6da83",
+  storageBucket: "outfit-me-6da83.firebasestorage.app",
+  messagingSenderId: "775486441266",
+  appId: "1:775486441266:web:aba40c3e9ef05a36d5b92b",
+  measurementId: "G-SWG8027FRE"
 };
 
 // Inicialización de Firebase
