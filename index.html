@@ -33,12 +33,12 @@
 
   <section id="register-section" class="hidden">
     <h2>Registrarse</h2>
-    <!-- Formulario de registro (si es necesario) -->
+    <!-- Formulario de registro -->
   </section>
 
   <section id="login-section" class="hidden">
     <h2>Iniciar sesión</h2>
-    <!-- Formulario de login (si es necesario) -->
+    <!-- Formulario de login -->
   </section>
 
   <!-- Firebase -->
@@ -56,11 +56,6 @@
       messagingSenderId: "tu-messaging-sender-id",
       appId: "tu-app-id",
     };
-
-    // Inicializa Firebase
-    import { initializeApp } from 'firebase/app';
-    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
-    import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
@@ -147,19 +142,6 @@
         console.log("Usuario no autenticado");
       }
     });
-
-    // Añadir una publicación (opcional)
-    async function addPost(postContent) {
-      try {
-        const docRef = await addDoc(collection(db, "posts"), {
-          content: postContent,
-          createdAt: new Date(),
-        });
-        console.log("Publicación añadida con ID:", docRef.id);
-      } catch (e) {
-        console.error("Error añadiendo publicación: ", e);
-      }
-    }
   </script>
 </body>
 </html>
