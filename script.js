@@ -9,6 +9,18 @@ document.getElementById("profile-link").addEventListener("click", function() {
     document.querySelector("main").classList.add("hidden"); // Oculta la sección principal
 });
 
+// Muestra la sección de login
+document.getElementById("login-link").addEventListener("click", function() {
+    document.getElementById("login-section").classList.remove("hidden");
+    document.querySelector("main").classList.add("hidden"); // Oculta la sección principal
+});
+
+// Muestra la sección de registro
+document.getElementById("register-link").addEventListener("click", function() {
+    document.getElementById("register-section").classList.remove("hidden");
+    document.querySelector("main").classList.add("hidden"); // Oculta la sección principal
+});
+
 // Lógica para cambiar la foto de perfil
 document.getElementById("change-pic-btn").addEventListener("click", function() {
     // Creamos un input de tipo file para seleccionar la imagen
