@@ -1,145 +1,41 @@
-/* Estilos generales */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Sección oculta */
+.hidden {
+  display: none;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;  /* Aplica la fuente Montserrat */
-    background-color: #121212;  /* Fondo oscuro */
-    color: #fff;  /* Texto blanco */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;  /* Asegura que la página ocupe todo el alto de la ventana */
-}
-
-/* Barra de navegación */
-header {
-    background-color: #333;  /* Gris oscuro */
-    padding: 10px 0;
-    text-align: center;
+/* Estilos de la barra de navegación */
+nav {
+  background-color: #333;
+  color: white;
+  padding: 10px;
 }
 
 nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
 }
 
-nav ul li {
-    margin: 0 20px; /* Espaciado entre los elementos */
+nav li {
+  padding: 5px;
 }
 
-nav ul li a {
-    color: #fff; /* Texto blanco */
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 15px;
-    border-radius: 5px; /* Bordes redondeados */
-    transition: background-color 0.3s ease; /* Efecto de transición */
+nav a {
+  color: white;
+  text-decoration: none;
 }
 
-/* Efecto de hover */
-nav ul li a:hover {
-    background-color: #444; /* Gris más claro cuando se pasa el mouse */
+/* Estilos para el contenido */
+section {
+  padding: 20px;
 }
 
-/* Sección de opciones adicionales */
-nav ul li:nth-last-child(-n+2) {
-    margin-left: 40px; /* Separar "Registrarse" y "Logearse" de las otras opciones */
+/* Estilos para el perfil */
+#profile-img {
+  width: 100px;
+  border-radius: 50%;
 }
 
-/* Contenido principal */
-main {
-    text-align: center;
-    padding: 50px 20px;
-    flex: 1;  /* Hace que el contenido ocupe todo el espacio disponible */
-}
-
-h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-.subtitulo {
-    font-size: 18px;
-    color: #bbb;
-}
-
-/* Sección del perfil */
 #profile-section {
-    text-align: center;
-    padding: 50px;
-}
-
-.hidden {
-    display: none; /* Oculta los elementos */
-}
-
-.profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.profile-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-picture {
-    position: relative;
-}
-
-.profile-picture img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #fff;
-}
-
-#change-pic-btn {
-    background-color: #444;
-    color: #fff;
-    border: none;
-    padding: 5px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-#change-pic-btn:hover {
-    background-color: #555;
-}
-
-.username {
-    margin-top: 20px;
-}
-
-.username input {
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #444;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 200px;
-}
-
-/* Pie de página */
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #333;  /* Gris oscuro */
-    margin-top: auto;  /* Empuja el pie de página hacia abajo */
-}
-
-/* Estilo de los enlaces cuando se pasa el cursor */
-nav ul li a:hover {
-    background-color: #555; /* Gris más claro al pasar el mouse */
+  text-align: center;
 }
