@@ -1,53 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OutfitMe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OutfitMe</title>
+  <!-- Importa Firebase desde el CDN -->
+  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-firestore.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home" id="home-link">Home</a></li>
-                <li><a href="#upload">Upload</a></li>
-                <li><a href="#profile" id="profile-link">Profile</a></li>
-                <li><a href="#settings">Settings</a></li>
-                <li><a href="#register" id="register-link">Registrarse</a></li>
-                <li><a href="#login" id="login-link">Logearse</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main id="home-section">
-        <h1>OutfitMe</h1>
-        <p class="subtitulo">Califica una foto o publica una tú</p>
-        <button id="google-login-btn">Iniciar sesión con Google</button>
-    </main>
+  <h1>Bienvenido a OutfitMe</h1>
 
-    <section id="profile-section" class="hidden">
-        <div class="profile-container">
-            <div class="profile-header">
-                <div class="profile-picture">
-                    <img id="profile-img" src="default-avatar.jpg" alt="Foto de perfil">
-                    <button id="change-pic-btn">Cambiar foto</button>
-                </div>
-                <div class="username">
-                    <label for="username-input">Nombre de Usuario:</label>
-                    <input type="text" id="username-input" value="Usuario123">
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Botón para iniciar sesión con Google -->
+  <button id="google-login-button">Iniciar sesión con Google</button>
 
-    <footer>
-        <p>&copy; 2025 Thiago Azario</p>
-    </footer>
+  <!-- Script de Firebase y funcionalidad -->
+  <script>
+    // Tu configuración de Firebase (proporcionada por Firebase Console)
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbKrXeAtvHKaEuczR4-amATS9b-iwWG8U",
+      authDomain: "outfit-me-6da83.firebaseapp.com",
+      projectId: "outfit-me-6da83",
+      storageBucket: "outfit-me-6da83.firebasestorage.app",
+      messagingSenderId: "775486441266",
+      appId: "1:775486441266:web:aba40c3e9ef05a36d5b92b",
+      measurementId: "G-SWG8027FRE"
+    };
+
+    // Inicializa Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    // Función para iniciar sesión con Google
+    function signInWithGoogle() {
+      firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user;
+          console.log("Usuario autenticado:", user);
+          alert("Bienvenido, " + user.displayName);
+        })
+        .catch((error) => {
+          console.error("Error al iniciar sesión con Google:", error.message);
+        });
+    }
+
+    // Agregar un outfit a la base de datos
+    function addOutfit(outfitData) {
+      db.collection("outfits").add(outfitData)
+        .then((docRef) => {
+          console.log("Outfit agregado con ID: ", docRef.id);
+        })
+        .catch((error) => {
+          console.error("Error al agregar outfit: ", error);
+        });
+    }
+
+    // Configura el botón para iniciar sesión
+    document.getElementById('google-login-button').addEventListener('click', signInWithGoogle);
+  </script>
+
 </body>
 </html>
