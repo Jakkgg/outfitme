@@ -7,31 +7,40 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #121212;  /* Fondo oscuro */
+    color: #fff;  /* Texto blanco */
 }
 
 /* Barra de navegación */
 header {
-    background-color: #333;
-    color: white;
+    background-color: #333;  /* Gris oscuro */
     padding: 10px 0;
     text-align: center;
 }
 
 nav ul {
     list-style-type: none;
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    padding: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+    margin: 0 20px; /* Espaciado entre los elementos */
 }
 
 nav ul li a {
-    color: white;
+    color: #fff; /* Texto blanco */
     text-decoration: none;
     font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Efecto de transición */
+}
+
+/* Efecto de hover */
+nav ul li a:hover {
+    background-color: #444; /* Gris más claro cuando se pasa el mouse */
 }
 
 /* Contenido principal */
@@ -48,11 +57,10 @@ h1 {
 footer {
     text-align: center;
     padding: 10px 0;
-    background-color: #333;
-    color: white;
+    background-color: #333;  /* Gris oscuro */
 }
 
 /* Estilo de los enlaces cuando se pasa el cursor */
 nav ul li a:hover {
-    color: #ddd;
+    background-color: #555; /* Gris más claro al pasar el mouse */
 }
