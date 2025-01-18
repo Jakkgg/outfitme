@@ -8,17 +8,76 @@
   <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home" id="home-link">Home</a></li>
+        <li><a href="#upload">Upload</a></li>
+        <li><a href="#profile" id="profile-link">Profile</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#register" id="register-link">Registrarse</a></li>
+        <li><a href="#login" id="login-link">Logearse</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <h1>Bienvenido a OutfitMe</h1>
+  <main id="home-section">
+    <h1>OutfitMe</h1>
+    <p class="subtitulo">Califica una foto o publica una tú</p>
+  </main>
 
-  <!-- Botón para iniciar sesión con Google -->
+  <!-- Sección de perfil -->
+  <section id="profile-section" class="hidden">
+    <div class="profile-container">
+      <div class="profile-header">
+        <div class="profile-picture">
+          <img id="profile-img" src="default-avatar.jpg" alt="Foto de perfil">
+          <button id="change-pic-btn">Cambiar foto</button>
+        </div>
+        <div class="username">
+          <label for="username-input">Nombre de Usuario:</label>
+          <input type="text" id="username-input" value="Usuario123">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de login -->
+  <section id="login-section" class="hidden">
+    <h2>Iniciar Sesión</h2>
+    <form id="login-form">
+      <label for="login-username">Usuario:</label>
+      <input type="text" id="login-username" required><br>
+      <label for="login-password">Contraseña:</label>
+      <input type="password" id="login-password" required><br>
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+  </section>
+
+  <!-- Sección de registro -->
+  <section id="register-section" class="hidden">
+    <h2>Registrarse</h2>
+    <form id="register-form">
+      <label for="register-username">Usuario:</label>
+      <input type="text" id="register-username" required><br>
+      <label for="register-password">Contraseña:</label>
+      <input type="password" id="register-password" required><br>
+      <button type="submit">Registrarse</button>
+    </form>
+  </section>
+
+  <!-- Función para iniciar sesión con Google -->
   <button id="google-login-button">Iniciar sesión con Google</button>
 
-  <!-- Aquí puedes agregar contenido, formularios, etc. para tu página -->
-  
-  <!-- Tu configuración de Firebase (proporcionada por Firebase Console) -->
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2025 Thiago Azario</p>
+  </footer>
+
+  <!-- Tu configuración de Firebase -->
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyAbKrXeAtvHKaEuczR4-amATS9b-iwWG8U",
@@ -49,22 +108,8 @@
         });
     }
 
-    // Agregar un outfit a la base de datos
-    function addOutfit(outfitData) {
-      db.collection("outfits").add(outfitData)
-        .then((docRef) => {
-          console.log("Outfit agregado con ID: ", docRef.id);
-        })
-        .catch((error) => {
-          console.error("Error al agregar outfit: ", error);
-        });
-    }
-
     // Configura el botón para iniciar sesión
     document.getElementById('google-login-button').addEventListener('click', signInWithGoogle);
   </script>
-
-  <!-- Aquí puedes agregar más funcionalidades y código para la página -->
-
 </body>
 </html>
