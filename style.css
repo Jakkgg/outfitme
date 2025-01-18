@@ -1,3 +1,15 @@
+/* Importar la fuente Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Estilos generales */
+body {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto en color claro */
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 /* Sección oculta */
 .hidden {
   display: none;
@@ -5,15 +17,18 @@
 
 /* Estilos de la barra de navegación */
 nav {
-  background-color: #333;
+  background-color: #1e1e1e; /* Fondo un poco más claro que el cuerpo */
   color: white;
   padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
+  margin: 0;
+  padding: 0;
 }
 
 nav li {
@@ -21,21 +36,64 @@ nav li {
 }
 
 nav a {
-  color: white;
+  color: #bb86fc; /* Color de texto del enlace (morado Google) */
   text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #03dac6; /* Cambia a verde agua al pasar el mouse */
 }
 
 /* Estilos para el contenido */
 section {
   padding: 20px;
+  background-color: #1e1e1e; /* Fondo para las secciones */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+/* Estilos para el botón */
+button {
+  background-color: #bb86fc;
+  color: #121212;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3700b3; /* Oscurecer el color del botón */
 }
 
 /* Estilos para el perfil */
 #profile-img {
   width: 100px;
   border-radius: 50%;
+  margin-bottom: 15px;
 }
 
 #profile-section {
   text-align: center;
+}
+
+/* Estilo para los encabezados */
+h1, h2 {
+  color: #ffffff; /* Texto blanco */
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
