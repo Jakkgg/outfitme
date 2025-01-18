@@ -1,43 +1,71 @@
-// Función para ir a la página principal (index.html)
-document.getElementById("home-link").addEventListener("click", function() {
-    window.location.href = "index.html"; // Cambia a la página principal
-});
+// Configuración de Firebase
+import { initializeApp } from 'firebase/app';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
-// Muestra la sección de perfil
-document.getElementById("profile-link").addEventListener("click", function() {
-    document.getElementById("profile-section").classList.toggle("hidden");
-    document.querySelector("main").classList.add("hidden"); // Oculta la sección principal
-});
+// Configuración de tu proyecto Firebase
+const firebaseConfig = {
+  apiKey: "tu-api-key",
+  authDomain: "tu-project-id.firebaseapp.com",
+  projectId: "tu-project-id",
+  storageBucket: "tu-project-id.appspot.com",
+  messagingSenderId: "tu-messaging-sender-id",
+  appId: "tu-app-id",
+};
 
-// Muestra la sección de login
-document.getElementById("login-link").addEventListener("click", function() {
-    document.getElementById("login-section").classList.remove("hidden");
-    document.querySelector("main").classList.add("hidden"); // Oculta la sección principal
-});
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Muestra la sección de registro
-document.getElementById("register-link").addEventListener("click", function() {
-    document.getElementById("register-section").classList.remove("hidden");
-    document.querySelector("main").classList.add("hidden"); // Oculta la sección principal
-});
-
-// Lógica para cambiar la foto de perfil
-document.getElementById("change-pic-btn").addEventListener("click", function() {
-    // Creamos un input de tipo file para seleccionar la imagen
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = 'image/png, image/jpeg'; // Solo permite PNG o JPG
-
-    fileInput.addEventListener('change', function() {
-        const file = fileInput.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById("profile-img").src = e.target.result; // Cambia la imagen de perfil
-            };
-            reader.readAsDataURL(file);
-        }
+// Iniciar sesión con Google
+document.getElementById("google-login-btn").addEventListener("click", function() {
+  const provider = new GoogleAuthProvider();
+  
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const user = result.user;
+      console.log("Usuario autenticado:", user);
+      alert("Bienvenido, " + user.displayName);
+      document.getElementById("profile-section").classList.remove("hidden"); // Mostrar la sección del perfil
+      document.getElementById("home-section").classList.add("hidden"); // Ocultar la sección de inicio
+    })
+    .catch((error) => {
+      console.error("Error en inicio de sesión: ", error.message);
+      alert("Error en inicio de sesión");
     });
-
-    fileInput.click(); // Abre el explorador de archivos
 });
+
+// Desloguear al usuario
+document.getElementById("logout-btn").addEventListener("click", function() {
+  signOut(auth).then(() => {
+    alert("Has cerrado sesión.");
+    document.getElementById("profile-section").classList.add("hidden");
+    document.getElementById("home-section").classList.remove("hidden");
+  }).catch((error) => {
+    console.error("Error al cerrar sesión:", error);
+  });
+});
+
+// Verificar si el usuario está autenticado
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("Usuario autenticado:", user);
+    document.getElementById("profile-section").classList.remove("hidden");
+    document.getElementById("home-section").classList.add("hidden");
+  } else {
+    console.log("Usuario no autenticado");
+  }
+});
+
+// Añadir una publicación (opcional)
+async function addPost(postContent) {
+  try {
+    const docRef = await addDoc(collection(db, "posts"), {
+      content: postContent,
+      createdAt: new Date(),
+    });
+    console.log("Publicación añadida con ID:", docRef.id);
+  } catch (e) {
+    console.error("Error añadiendo publicación: ", e);
+  }
+}
