@@ -75,7 +75,7 @@ h1 {
 }
 
 .hidden {
-    display: none; /* Oculta la sección por defecto */
+    display: none; /* Oculta los elementos */
 }
 
 .profile-container {
